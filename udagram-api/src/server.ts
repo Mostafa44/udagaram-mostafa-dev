@@ -1,13 +1,14 @@
 import cors from 'cors';
 import express from 'express';
-import {sequelize} from './sequelize';
+import { sequelize } from './sequelize';
 
-import {IndexRouter} from './controllers/v0/index.router';
+import { IndexRouter } from './controllers/v0/index.router';
 
 import bodyParser from 'body-parser';
-import {config} from './config/config';
-import {V0_FEED_MODELS, V0_USER_MODELS} from './controllers/v0/model.index';
-
+import { config } from './config/config';
+import { V0_FEED_MODELS, V0_USER_MODELS } from './controllers/v0/model.index';
+import * as dotenv from "dotenv";
+dotenv.config();
 
 (async () => {
   await sequelize.addModels(V0_FEED_MODELS);
@@ -16,7 +17,8 @@ import {V0_FEED_MODELS, V0_USER_MODELS} from './controllers/v0/model.index';
 
   const app = express();
   const port = process.env.PORT || 8080;
-
+  console.log("here it is ");
+  console.log(process.env.POSTGRES_USERNAME);
   app.use(bodyParser.json());
 
   app.use(cors({
@@ -32,14 +34,14 @@ import {V0_FEED_MODELS, V0_USER_MODELS} from './controllers/v0/model.index';
   app.use('/api/v0/', IndexRouter);
 
   // Root URI call
-  app.get( '/', async ( req, res ) => {
-    res.send( '/api/v0/' );
-  } );
+  app.get('/', async (req, res) => {
+    res.send('/api/v0/');
+  });
 
 
   // Start the Server
-  app.listen( port, () => {
-    console.log( `server running ${config.url}` );
-    console.log( `press CTRL+C to stop server` );
-  } );
+  app.listen(port, () => {
+    console.log(`server running ${config.url}`);
+    console.log(`press CTRL+C to stop server`);
+  });
 })();

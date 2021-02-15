@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-feed
+  labels:
+    app: udagram-feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-feed
+  template:
+    metadata:
+      labels:
+        app: udagram-feed
+    spec:
+      containers:
+      - name: udagram-feed
+        image: mostafa448/udagram-api-feed
+        imagePullPolicy: "Always"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+      

@@ -19,6 +19,9 @@ dotenv.config();
   const port = process.env.PORT || 8080;
   console.log("here it is ");
   console.log(process.env.POSTGRES_USERNAME);
+  console.log("the env variable for the url is ");
+  console.log(config.url);
+  console.log(process.env.URL);
   app.use(bodyParser.json());
 
   app.use(cors({

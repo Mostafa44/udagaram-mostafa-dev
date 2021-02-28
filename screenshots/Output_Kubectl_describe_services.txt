@@ -1,0 +1,72 @@
+C:\Users\Mostafa\Desktop\DevSpace\Cloud_Dev\udagram-mostafa-dev>kubectl describe services
+Name:                     frontend
+Namespace:                default
+Labels:                   service=frontend
+Annotations:              Selector:  service=frontend
+Type:                     LoadBalancer
+IP:                       10.100.129.191
+LoadBalancer Ingress:     a627f235c6a3c4c798dc8bf631d0f516-1245206072.eu-west-3.elb.amazonaws.com
+Port:                     8100  8100/TCP
+TargetPort:               80/TCP
+NodePort:                 8100  31598/TCP
+Endpoints:                172.31.13.141:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+
+Name:              kubernetes
+Namespace:         default
+Labels:            component=apiserver
+                   provider=kubernetes
+Annotations:       <none>
+Selector:          <none>
+Type:              ClusterIP
+IP:                10.100.0.1
+Port:              https  443/TCP
+TargetPort:        443/TCP
+Endpoints:         172.31.27.67:443,172.31.38.82:443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:                     reverseproxy
+Namespace:                default
+Labels:                   service=reverseproxy
+Annotations:              Selector:  service=reverseproxy
+Type:                     LoadBalancer
+IP:                       10.100.218.222
+LoadBalancer Ingress:     acad7d27a966244efb1c1e28f6bee9b4-659169367.eu-west-3.elb.amazonaws.com
+Port:                     8080  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 8080  32581/TCP
+Endpoints:                172.31.34.247:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+
+Name:              udagram-feed-svc
+Namespace:         default
+Labels:            app=udagram-feed
+Annotations:       Selector:  app=udagram-feed
+Type:              ClusterIP
+IP:                10.100.172.5
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         172.31.41.145:8080
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              udagram-user-svc
+Namespace:         default
+Labels:            app=udagram-user
+Annotations:       Selector:  app=udagram-user
+Type:              ClusterIP
+IP:                10.100.242.37
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         172.31.37.0:8080,172.31.9.48:8080
+Session Affinity:  None
+Events:            <none>

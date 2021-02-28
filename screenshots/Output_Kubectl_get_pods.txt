@@ -1,0 +1,7 @@
+C:\Users\Mostafa\Desktop\DevSpace\Cloud_Dev\udagram-mostafa-dev>kubectl get pods
+NAME                            READY   STATUS    RESTARTS   AGE
+frontend-b9b8fc4df-gvxhw        1/1     Running   0          21h
+reverseproxy-55948bd6c5-xvrq6   1/1     Running   0          3h46m
+udagram-feed-6568fcbb76-nk2mz   1/1     Running   0          14h
+udagram-user-77fc6476d-9bntb    1/1     Running   0          25h
+udagram-user-77fc6476d-zpbpp    1/1     Running   0          25h

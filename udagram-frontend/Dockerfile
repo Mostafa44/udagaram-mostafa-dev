@@ -1,5 +1,5 @@
 # use ionic base image
-FROM beevelop/ionic
+FROM beevelop/ionic AS ionic
 
 # create a work directory
 WORKDIR /usr/src/app
